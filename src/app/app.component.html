@@ -1,0 +1,35 @@
+<mat-toolbar>
+  <div fxShow="true" fxHide.gt-sm="true">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <a mat-button class="companyName" color="primary" routerLink="/">
+    <span>{{title}}</span>
+  </a>
+  <span class="spacer"></span>
+  <div fxShow="true" fxHide.lt-md="true">
+    <a mat-button routerLink="/home" color="accent" routerLinkActive="active">Home</a>
+    <a mat-button routerLink="/display" color="accent" routerLinkActive="active">Display</a>
+    <a mat-button routerLink="/capture" color="accent" routerLinkActive="active">Capture</a>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container fxFlexFill class="container">
+  <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
+    <div fxLayout="column">
+      <a mat-button routerLink="/home" color="accent" routerLinkActive="active">Home</a>
+      <a mat-button routerLink="/display" color="accent" routerLinkActive="active">Display</a>
+      <a mat-button routerLink="/capture" color="accent" routerLinkActive="active">Capture</a>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+    <div class="content" role="main">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- Footer -->
+    <footer>
+
+    </footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
